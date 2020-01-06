@@ -1,2 +1,2 @@
 # MS-Project
-Emulating some of MS Project functionality using java for SWE466 Project
+Emulating some of MS Project functions using java for SWE466 Project
