@@ -27,15 +27,12 @@ public class Tasks {
 	String stRate = ""; // standard rate
 	String Ovt = ""; // overtime rate
 
-	
-
-
 	// adding new tasks:
 	public void writeTasks(int id, String tname, long days, String sdate, String fdate) {
 
 		try {
 
-			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\Tasks.txt", true); // 
+			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\Tasks.txt", true); //
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 
 			printWriter.print(id + "    ");
@@ -50,10 +47,13 @@ public class Tasks {
 		}
 
 	}
-	
-	
+
 	// writing new resources
-	public void writeResources(String rname, String rtype, int material, int maxn, int rate, int ovt, int cuse) { // cuse is cost of use
+	public void writeResources(String rname, String rtype, int material, int maxn, int rate, int ovt, int cuse) { // cuse
+																													// is
+																													// cost
+																													// of
+																													// use
 
 		try {
 
@@ -69,8 +69,8 @@ public class Tasks {
 		}
 
 	}
-	
-	private Scanner p; 
+
+	private Scanner p;
 	private Scanner q;
 
 	// allocating resources to tasks
@@ -95,7 +95,7 @@ public class Tasks {
 				String days = q.next();
 				String start = q.next();
 				String finish = q.next();
-				
+
 				System.out.printf("%s %s %s %s %s ", tid, tname, days, start, finish);
 				tid = id;
 				tnamee = tname;
@@ -118,27 +118,31 @@ public class Tasks {
 				}
 			}
 		}
-		writeTasksResources(idd, tnamee, dayss, startt, finishh, rnamee); 
+		writeTasksResources(idd, tnamee, dayss, startt, finishh, rnamee);
 
 		q.close();
 		p.close();
 
 	}
 
-	// this method prints a file containing the allocated resources with the corresponding tasks.
+	// this method prints a file containing the allocated resources with the
+	// corresponding tasks.
 	public void writeTasksResources(String id, String tname, String days, String sdate, String fdate, String resource) {
 
 		try {
 
-			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\allocateTasksResources.txt",	true);
+			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\allocateTasksResources.txt",
+					true);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 
-			printWriter.print(id + "    ");
-			printWriter.print(tname + "    ");
-			printWriter.print(days + "    ");
-			printWriter.print(sdate + "    ");
-			printWriter.print(fdate + "    ");
-			printWriter.print(resource + "    ");
+
+
+			printWriter.print(id + "  ");
+			printWriter.print(tname + "  ");
+			printWriter.print(days + "  ");
+			printWriter.print(sdate + "  ");
+			printWriter.print(fdate + "  ");
+			printWriter.print(resource + "  ");
 			printWriter.println("");
 			printWriter.close();
 		} catch (Exception e) {
@@ -155,11 +159,13 @@ public class Tasks {
 		}
 		try {
 
-			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\TasksReport.txt", false); // "false" prevents appending to the file.
+			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\TasksReport.txt", false); // "false"
+																													// prevents
+																													// appending
+																													// to
+																													// the
+																													// file.
 			PrintWriter printWriter = new PrintWriter(fileWriter);
-
-			System.out.println("ID    TaskName    Duration    Start    Finish");
-			printWriter.println("ID    TaskName    Duration    Start    Finish");
 
 			while (q.hasNext()) {
 				String id = q.next();
@@ -167,9 +173,11 @@ public class Tasks {
 				String days = q.next();
 				String start = q.next();
 				String finish = q.next();
-				System.out.printf("%s %s %s %s %s \n", id, tname, days, start, finish);
+				System.out.printf("%s %s %s %s %s \n", "ID: " + id, "Task Name: " + tname, "Duration: " + days,
+						"Starting Date: " + start, "Finishing Date: " + finish);
 
-				printWriter.print(id + "    " + tname + "    " + days + "    " + start + "    " + finish + "\n");
+				printWriter.println("ID: " + id + "    " + "Task Name: " + tname + "    " + "Duration: " + days + "    "
+						+ "Starting Date: " + start + "    " + "Finishing Date: " + finish + "\n");
 			}
 			printWriter.close();
 
@@ -192,8 +200,7 @@ public class Tasks {
 			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\ResourcesReport.txt", false);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 
-			System.out.println("Resource Name    Type    Material   Max   Rate   ovt   cost/use");
-			printWriter.println("Resource Name    Type    Material   Max   Rate   ovt   cost/use");
+	
 
 			while (q.hasNext()) {
 				String a = q.next();
@@ -203,9 +210,8 @@ public class Tasks {
 				String e = q.next();
 				String f = q.next();
 				String g = q.next();
-				System.out.printf("%s           %s       %s     %s     %s     %s    %s   \n", a, b, c, d, e, f, g);
-				printWriter.println(
-						a + "         " + b + "      " + c + "      " + d + "      " + e + "      " + f + "      " + g);
+				System.out.printf("%s           %s       %s     %s     %s     %s    %s   \n","Resource: "+ a,"Type: " + b,"Material: "+ c, "Max: "+ d,"Rate: "+  e,"OVT: "+ f,"Cost/Use: " + g);
+				printWriter.println("Resource: "+ a+"    Type: " + b+"    Material: "+ c+ "    Max: "+ d+"    Rate: "+  e+"    OVT: "+ f+"    Cost/Use: " + g);
 			}
 			printWriter.close();
 		} catch (Exception e) {
@@ -213,6 +219,7 @@ public class Tasks {
 		}
 		q.close();
 	}
+
 	// displaying the allocated resources with their corresponding tasks
 	public void OpenTasksResources() {
 		try {
@@ -222,11 +229,11 @@ public class Tasks {
 		}
 		try {
 
-			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\TasksResourcesReport.txt", false);
+			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\TasksResourcesReport.txt",
+					false);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 
-			System.out.println("ID    TaskName    Duration    Start    Finish    Resource");
-			printWriter.println("ID    TaskName    Duration    Start    Finish    Resource");
+
 
 			while (q.hasNext()) {
 				String a = q.next();
@@ -236,8 +243,8 @@ public class Tasks {
 				String e = q.next();
 				String f = q.next();
 
-				System.out.printf("%s   %s   %s   %s   %s   %s   \n", a, b, c, d, e, f);
-				printWriter.println(a + "    " + b + "    " + c + "    " + d + "    " + e + "    " + f);
+				System.out.printf("%s   %s   %s   %s   %s   %s   \n","ID: "+  a,"Task Name: "+ b,"Duration: " +c,"Starting Date: " + d,"Finishing Date: " + e,"Resource: " + f);
+				printWriter.println("Task Name: "+ b+"    Duration: " +c+"    Starting Date: " + d+"	  Finishing Date: " + e+"    Resource: " + f);
 
 			}
 			printWriter.close();
@@ -247,6 +254,7 @@ public class Tasks {
 
 		q.close();
 	}
+
 	// calculating the total cost of a task
 	public void costOfTask() {
 		int dur = 0;
@@ -265,8 +273,6 @@ public class Tasks {
 			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\CostOfTask.txt", false);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 
-			System.out.println("ID    TaskName    Duration    Start    Finish    Resource     Cost");
-			printWriter.println("ID    TaskName    Duration    Start    Finish    Resource      Cost");
 
 			while (q.hasNext()) {
 				String a = q.next(); // task id
@@ -314,9 +320,10 @@ public class Tasks {
 					}
 				}
 
-				System.out.printf("%s   %s   %s   %s   %s   %s   %s   \n", a, b, c, d, e, f, total);
-				printWriter
-						.println(a + "    " + b + "    " + c + "    " + d + "    " + e + "    " + f + "    " + total);
+				System.out.printf("%s   %s   %s   %s   %s   %s   %s   \n","ID: "+ a,"Task Name: "+ b,  "Duration: "+c,"Starting Date: "+ d,"Finishing Date: "+ e, "Resource: "+ f,"Cost: " +total);
+				printWriter.println("ID: " + a + "    " + "Task Name: " + b + "    " + "Duration: " + c + "    "
+						+ "Starting Date: " + d + "    " + "Finishing Date: " + e + "    " + "Resource: " + f + "    "
+						+ "Cost: " + total);
 
 			}
 			printWriter.close();
@@ -346,8 +353,7 @@ public class Tasks {
 			FileWriter fileWriter = new FileWriter("C:\\\\Users\\\\SALEH\\\\Desktop\\\\TotalCostOfTasks.txt", false);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
 
-			System.out.println("ID    TaskName    Duration    Start    Finish    Resource     Cost");
-			printWriter.println("ID    TaskName    Duration    Start    Finish    Resource      Cost");
+	
 
 			while (q.hasNext()) {
 				String a = q.next(); // task id
@@ -374,7 +380,7 @@ public class Tasks {
 						String r5 = p.next(); // ovt
 						String r6 = p.next(); // cost/use
 
-						if (r1.equalsIgnoreCase("work")) { // work 
+						if (r1.equalsIgnoreCase("work")) { // work
 							i3 = Integer.parseInt(r3); // max integer
 							i4 = Integer.parseInt(r4); // rate integer
 							i5 = Integer.parseInt(r5); // ovt
@@ -382,25 +388,26 @@ public class Tasks {
 							total = i3 * i4 * dur * 8 + i5 * i4;
 
 						}
-						if (r1.equalsIgnoreCase("cost")) { // cost 
+						if (r1.equalsIgnoreCase("cost")) { // cost
 							int i6 = Integer.parseInt(r6);
 							total = i6;
 
 						}
-						if (r1.equalsIgnoreCase("material")) { // material 
+						if (r1.equalsIgnoreCase("material")) { // material
 							int i6 = Integer.parseInt(r6);
 							total = i6;
 						}
 					}
 				}
 				totalCosts += total;
-				System.out.printf("%s   %s   %s   %s   %s   %s   %s   \n", a, b, c, d, e, f, total);
-				printWriter
-						.println(a + "    " + b + "    " + c + "    " + d + "    " + e + "    " + f + "    " + total);
+				System.out.printf("%s   %s   %s   %s   %s   %s   %s   \n","ID: "+ a,"Task Name: "+ b,  "Duration: "+c,"Starting Date: "+ d,"Finishing Date: "+ e, "Resource: "+ f,"Cost: " +total);
+				printWriter.println("ID: " + a + "    " + "Task Name: " + b + "    " + "Duration: " + c + "    "
+						+ "Starting Date: " + d + "    " + "Finishing Date: " + e + "    " + "Resource: " + f + "    "
+						+ "Cost: " + total);
 
 			}
-			System.out.println("Total cost of all tasks i             "+totalCosts);
-			printWriter.println("Total cost of all tasks is:         "+totalCosts);
+			System.out.println("Total cost of all tasks is:   " + totalCosts);
+			printWriter.println("Total cost of all tasks is:   " + totalCosts);
 			printWriter.close();
 		} catch (Exception e) {
 			System.out.println("Error in TotalCostOfTasks(), File is not found (3)");
@@ -409,34 +416,31 @@ public class Tasks {
 		q.close();
 
 	}
+
 	// this method is for calculating the days between two dates
 	public long daysBetween(Date one, Date two) {
 		long difference = (one.getTime() - two.getTime()) / 86400000;
 		return Math.abs(difference);
 	}
 
-
-	
 	public static void main(String[] args) {
 		Tasks myObject = new Tasks();
 		Scanner d = new Scanner(System.in); // dates
 		Scanner t = new Scanner(System.in); // tasks
 
-
 		while (true) {
 			Scanner S = new Scanner(System.in);
-			System.out.println("Choose one  of the following: ");
-			System.out.println("(1)- Tasks");
-			System.out.println("(2)- Resource identification");
-			System.out.println("(3)- Allocate appropriate resource to a task");
-			System.out.println("(4)- Report of all tasks");
-			System.out.println("(5)- Display resources");
-			System.out.println("(6)- Display tasks and resources");
-			System.out.println("(7)- Display task resource of each task");
-			System.out.println("(8)- Display the total cost for whole project");
+			System.out.println("Choose one of the following: ");
+			System.out.println("(1)- Add a task");
+			System.out.println("(2)- Add a resource");
+			System.out.println("(3)- Allocate a resource to a task");
+			System.out.println("(4)- Display a report containing all tasks");
+			System.out.println("(5)- Display a report containing all resources");
+			System.out.println("(6)- Display a report of tasks and resources");
+			System.out.println("(7)- Display the cost of each tasks");
+			System.out.println("(8)- Display the total cost for the whole project");
 
 			int x = S.nextInt();
-
 
 			if (x == 1) {
 
@@ -452,18 +456,27 @@ public class Tasks {
 
 				// Scanner for dates
 
-				System.out.println("Enter year, month, day respectevely for start date :");
-
+				System.out.println("Enter the following for starting dates:");
+				System.out.println("Year (ex: 2019):");
 				int syear = d.nextInt();
+
+				System.out.println("Month (ex: 2):");
 				int smonth = d.nextInt() - 1;
+
+				System.out.println("Day (ex: 15):");
 				int sday = d.nextInt();
 				startdate.set(syear, smonth, sday);
 
-				System.out.println("Enter year, month, day respectevely for finish date :");
-
+				System.out.println("Enter the following for finishing dates:");
+				System.out.println("Year (ex: 2019):");
 				int fyear = d.nextInt();
+
+				System.out.println("Month (ex: 2):");
 				int fmonth = d.nextInt() - 1;
+
+				System.out.println("Day (ex: 27):");
 				int fday = d.nextInt();
+
 				finishdate.set(fyear, fmonth, fday);
 
 				Date start = startdate.getTime();
@@ -471,13 +484,13 @@ public class Tasks {
 
 				long days = myObject.daysBetween(start, finish);
 
-				System.out.print(id + "    ");
-				System.out.print(tname + "    ");
-				System.out.print(days + 2 + "    ");
+				System.out.print("ID: " + id + "    ");
+				System.out.print("Task Name: " + tname + "    ");
+				System.out.print("Duration: " + (days + 2) + "    ");
 				String sdate = sday + "/" + (smonth + 1) + "/" + syear;
-				System.out.print(sdate);
+				System.out.print("Starting Date: " + sdate);
 				String fdate = fday + "/" + (fmonth + 1) + "/" + fyear;
-				System.out.println("    " + fdate);
+				System.out.println("    Finishing Date: " + fdate);
 				myObject.writeTasks(id, tname, days, sdate, fdate);
 
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -494,14 +507,14 @@ public class Tasks {
 				int unit = 0;
 				int cuse = 0;
 
-				System.out.println("Enter Resource Name ");
+				System.out.println("Enter Resource Name: ");
 				rname = t.next();
 
-				System.out.println("Enter Resource Type ");
+				System.out.println("Enter Resource Type: ");
 				rtype = t.next();
 
 				if (rtype.equalsIgnoreCase("work")) { // case 1
-					System.out.println("Enter Max: ");
+					System.out.println("Enter Max (out of 100):");
 					maxn = t.nextInt() / 100;
 					System.out.println("Enter rate per hour: ");
 					rate = t.nextInt();
@@ -522,15 +535,15 @@ public class Tasks {
 				}
 
 				System.out.println("");
-				System.out.print(rname + "    " + rtype + "    ");
+				System.out.print("Resource: " +rname + "    " + "Type: " +rtype + "    ");
 
 				if (rtype.equalsIgnoreCase("work")) {
-					System.out.print(maxn + "    " + rate + "    " + ovt + "    ");
+					System.out.print("Max: " +maxn + "    " +"Rate: " + rate + "    " +"Overtime: "+ ovt + "    ");
 				}
 
 				if (rtype.equalsIgnoreCase("material")) {
 					System.out.print(unit);
-					System.out.print("   " + cuse);
+					System.out.print("   Cost of use: " + cuse);
 				}
 				if (rtype.equalsIgnoreCase("cost")) {
 
@@ -550,11 +563,9 @@ public class Tasks {
 
 				myObject.allocate(id, rname);
 
-			}
-			else if (x == 4) {
+			} else if (x == 4) {
 				myObject.openTasks();
-			}
-			else if (x == 5) {
+			} else if (x == 5) {
 				myObject.openResources();
 			}
 
@@ -565,17 +576,18 @@ public class Tasks {
 			else if (x == 7) {
 				myObject.costOfTask();
 
-			}
-			else if (x==8) {
+			} else if (x == 8) {
 				myObject.TotalCostOfTasks();
 			}
-			System.out.println("\nEnter 1 if you want to continue, -1 to exit: ");
-			int c = t.nextInt();
-			if (c == -1) {
+			System.out.println("\n\nEnter (0) if you want to continue, (-1) or anything to exit.");
+			x = S.nextInt();
+
+			if (!(x == 0)) {
+
 				System.out.println("Thank you :)");
 				break;
 			}
-
 		}
+
 	}
 }
